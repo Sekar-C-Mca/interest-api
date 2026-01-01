@@ -1,10 +1,8 @@
 export default function handler(req, res) {
-  // ✅ Allow all origins (learning only)
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  // ✅ Handle preflight request
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
@@ -16,5 +14,8 @@ export default function handler(req, res) {
   }
 
   const interest = (principal * rate * time) / 100;
+
+  // ✅ ONLY interest
   res.status(200).json({ interest });
 }
+
